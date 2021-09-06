@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TooMuchToDoXamarinApp.Views.ItemView"
+             Title="New to-do item">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" />
+    </ContentPage.ToolbarItems>
+    
+    <!--Default orientation is vertical-->
+    <StackLayout Padding="14">
+        <Label Text="Title" />
+        <Entry />
+        <Label Text="Due" />
+        <DatePicker />
+        <StackLayout Orientation="Horizontal">
+            <!--Renders a toggle button to control when an item is complete-->
+            <Switch />
+            <Label Text="Completed" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
