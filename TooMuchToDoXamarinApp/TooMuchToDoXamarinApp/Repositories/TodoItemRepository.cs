@@ -17,16 +17,22 @@ namespace TooMuchToDoXamarinApp.Repositories
 
 		public async Task<List<TodoItem>> GetItems()
 		{
-			return null; //Just to get it to build for now.
+			await CreateConnection();
+			return await connection.Table<TodoItem>().ToListAsync();
 		}
 
 		public async Task AddItem(TodoItem item)
 		{
-
+			await CreateConnection();
+			await connection.InsertAsync(item);
+			OnItemAdded?.Invoke(this, item);
 		}
 
 		public async Task UpdateItem(TodoItem item)
 		{
+			await CreateConnection();
+			await connection.UpdateAsync(item);
+			OnItemUpdated?.Invoke(this, item);
 		}
 
 		public async Task AddOrUpdate(TodoItem item)
