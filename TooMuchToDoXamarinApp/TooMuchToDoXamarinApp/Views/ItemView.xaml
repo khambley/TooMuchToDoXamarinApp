@@ -5,18 +5,18 @@
              Title="New to-do item">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" />
+        <ToolbarItem Text="Save" Command="{Binding Save}"/>
     </ContentPage.ToolbarItems>
     
     <!--Default orientation is vertical-->
     <StackLayout Padding="14">
         <Label Text="Title" />
-        <Entry />
+        <Entry Text="{Binding Item.Title}"/>
         <Label Text="Due" />
-        <DatePicker />
+        <DatePicker Date="{Binding Item.DueDate}"/>
         <StackLayout Orientation="Horizontal">
             <!--Renders a toggle button to control when an item is complete-->
-            <Switch />
+            <Switch IsToggled="{Binding Item.Completed}"/>
             <Label Text="Completed" />
         </StackLayout>
     </StackLayout>
